@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from 'react-router-dom';
+
+import '@fontsource/space-grotesk'
+
+import {
+  Container,
+  Stack,
+  Heading,
+  Text,
+  Box
+} from '@chakra-ui/react'
+
+// COMPONENT
+import LandingPage from './pages/landing-page';
+import ComingSoon from './pages/coming-soon-page';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Box>
+      <Routes>
+        <Route path='/' element={<LandingPage/>} />
+        <Route path='/coming-soon' element={<ComingSoon/>} />
+      </Routes>
+    </Box>
   );
 }
 
