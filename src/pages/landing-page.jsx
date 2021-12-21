@@ -39,14 +39,21 @@ import {
   Image,
   Spacer,
   Text,
+  useMediaQuery
 } from "@chakra-ui/react";
 
 export default function LandingPage() {
+  
+  // const [isSmallerThan900] = useMediaQuery('(min-width: 900px)')
+
   return (
-    <Box bg={"secondary"} px={70} pt={5} pb={20}>
+    <Box bg={"secondary"} px={[55,70]} pt={5} pb={20}>
       <Header />
       {/* SECTION ONE*/}
-      <Grid templateColumns={"repeat(2, 1fr)"} py={100}>
+      <Grid 
+        templateColumns={['1fr','1fr','1fr',"repeat(2, 1fr)"]}
+        gap={10}
+        py={100}>
         <GridItem colStart={1} colEnd={2} alignSelf={"center"}>
           <Flex flexDirection={"column"} gap={5} alignItems={"start"}>
             <Heading color={"white"}>
@@ -62,14 +69,14 @@ export default function LandingPage() {
             </Button>
           </Flex>
         </GridItem>
-        <GridItem colStart={2} colEnd={3} justifySelf={"center"}>
-          <Image src={heroImage} alt="hero image" height={378} />
+        <GridItem colStart={[1,1,1,2]} colEnd={[1,1,1,3]} justifySelf={"center"}>
+          <Image src={heroImage} alt="hero image" height={[300,378]} />
         </GridItem>
       </Grid>
       {/* SECTION ONE END*/}
 
       {/* SECTION TWO*/}
-      <Grid templateColumns={"repeat(3, 1fr)"} gap={10} pb={100}>
+      <Grid templateColumns={['1fr','1fr','1fr',"repeat(3, 1fr)"]} gap={10} pb={[50,50,50,100]}>
         <GridItem>
           <ActionCard
             icon={MagicWand}
@@ -101,7 +108,7 @@ export default function LandingPage() {
       {/* SECTION TWO END*/}
 
       {/* SECTION THREE*/}
-      <Grid templateColumns={"35% 1fr"} pb={20}>
+      <Grid templateColumns={['1fr','1fr','1fr',"35% 1fr"]} gap={[10,10,10,null]} pb={[10,10,10,20]}>
         <GridItem>
           <Heading color={"white"}>Launching in</Heading>
           <Image src={curlyUnderline} />
@@ -118,8 +125,8 @@ export default function LandingPage() {
       {/* SECTION THREE END*/}
 
       {/* SECTION FOUR*/}
-      <Grid gap={10} bg={"blackAlpha.100"} p={10} borderRadius={20} mb={20}>
-        <GridItem>
+      <Grid gap={10} bg={"blackAlpha.100"} p={[5,5,5,10]} borderRadius={20} mb={[10,10,10,20]}>
+        <GridItem >
           <Heading color={"white"}>Goats mechanics</Heading>
           <Text color={"textColor2"}>
             Each base goat will consist of one to six attributes that can be
@@ -130,7 +137,7 @@ export default function LandingPage() {
           </Text>
         </GridItem>
         <GridItem>
-          <Grid templateColumns={"repeat(4, 1fr)"} gap={8}>
+          <Grid templateColumns={["repeat(2, 1fr)","repeat(4, 1fr)"]} gap={[5,5,5,8]}>
             <DataDisplay number="10,000" state="Total goats" sizeSmall start />
             <DataDisplay number="16" state="Backgrounds" sizeSmall start />
             <DataDisplay number="20" state="Skins" sizeSmall start />
@@ -145,7 +152,7 @@ export default function LandingPage() {
       {/* SECTION FOUR END*/}
       <hr />
       {/* SECTION FIVE*/}
-      <Box py={20} textAlign={"center"}>
+      <Box py={[10,10,10,20]} textAlign={"center"}>
         <Flex flexDirection={"column"} alignItems={"center"}>
           <Heading ding color={"white"}>
             Get your GOATs
@@ -172,16 +179,18 @@ export default function LandingPage() {
             Sold out: <span>0/10,000</span>
           </Text>
         </Box>
-        <Flex justifyContent={"space-between"}>
+        <Flex justifyContent={"space-between"} direction={['column','column','column','row']} gap={10}>
           <PackageCard
             image={PackageImage1}
             packageName={"Single GOAT"}
             quantity={"1 GOAT = 3 FLOW"}
+            popular
           />
           <PackageCard
             image={PackageImage2}
             packageName={"Tripple GOAT"}
             quantity={"3 GOAT = 7 FLOW"}
+            popular
           />
           <PackageCard
             image={PackageImage3}
@@ -203,7 +212,7 @@ export default function LandingPage() {
             Team
           </Heading>
           <Image src={zikzakUnderline} alt="normal underline" mb={10} />
-          <Box width={800} textAlign={"center"} mb={10}>
+          <Box width={['100%','100%','100%',800]} textAlign={"center"} mb={10}>
             <Text color={"textColor2"}>
               Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum
               nibh, ut fermentum massa justo sit amet risus. Vivamus sagittis
@@ -211,7 +220,7 @@ export default function LandingPage() {
             </Text>
           </Box>
         </Flex>
-        <Grid templateColumns={"repeat(4, 1fr)"} justifyContent={"center"}>
+        <Grid templateColumns={['1fr','1fr',"repeat(2, 1fr)","repeat(4, 1fr)"]} gap={5} justifyContent={"center"}>
           <TeamCard image={TeamImage1} text={"@loremipsum"} />
           <TeamCard image={TeamImage2} text={"@loremipsum"} />
           <TeamCard image={TeamImage3} text={"@loremipsum"} />
@@ -226,7 +235,7 @@ export default function LandingPage() {
           <Heading color={"white"}>FAQ</Heading>
           <Image src={question} ml={2} />
         </Flex>
-        <Flex width={800} mx={"auto"} gap={4} flexDirection={"column"}>
+        <Flex width={['100%','100%','100%',800]} mx={"auto"} gap={4} flexDirection={"column"}>
           <Flex
             p={3}
             color={"white"}

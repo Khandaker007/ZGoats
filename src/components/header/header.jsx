@@ -13,10 +13,10 @@ import logo from '../../assets/logo/goats-logo.png'
 
 export default function Header({onlyLogo}) {
   return (
-    <Flex justifyContent={'space-between'} px={70}>
-      <Image src={logo} alt="zgoats logo" height={'50px'}/>
-        <Flex alignItems={'center'} gap={30} display={onlyLogo ? 'none' : 'flex'}>
-            <HStack color={'white'} spacing={'30px'}>
+    <Flex justifyContent={'space-between'} direction={['column','row','row','row']} gap={3}>
+      <Image src={logo} alt="zgoats logo" height={['80px','50px','50px','50px']}/>
+        <Flex alignItems={'center'} justify={['center','center','center',null]} gap={30} display={onlyLogo ? 'none' : 'flex'}>
+            <HStack color={'white'} spacing={['15px','30px']}>
                 <Link>Rarity</Link>
                 <Link>Team</Link>
                 <Link>FAQ</Link>

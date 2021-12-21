@@ -1,6 +1,15 @@
 import { extendTheme } from '@chakra-ui/react'
 
+// const [isLargerThan1280] = useMediaQuery('(min-width: 1280px)')
+
 const theme = extendTheme({
+  // styles:{
+  //   global:{
+  //     html:{
+  //       fontSize: `${isLargerThan1280 ? '62.5%' : '50%'}`
+  //     }
+  //   }
+  // },
   fonts: {
     heading: 'Space Grotesk',
     body: 'Space Grotesk',
